@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #1c1f2f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .container {
+    position: relative;
+    transform: translateY(-100px);
+  }
+
+  .container::after {
+    content: '';
+    position: absolute;
+    top: 175%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: red;
+  }
+
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 5;
+    animation: animateWhiteCircle 4s ease-in-out infinite;
+  }
+
+  @keyframes animateWhiteCircle {
+    0%, 100% {
+      transform: translateX(-50%) translateX(-30px);
+    }
+    50% {
+      transform: translateX(-50%) translateX(30px);
+    }
+  }
+
+  .loader {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    animation: rotateHalfCircle 4s ease-in-out infinite;
+  }
+
+  @keyframes rotateHalfCircle {
+    0%, 100% {
+      transform: rotate(50deg);
+    }
+    50% {
+      transform: rotate(-43deg);
+    }
+  }
+
+  .loader::before {
+    content: '';
+    position: absolute;
+    bottom: 51px;
+    left: 0;
+    width: 200px;
+    height: 100px;
+    background: #6bebe0;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+  }
+
+  .ball {
+    position: absolute;
+    top: 6px;
+    left: -35px;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    animation: moveBall 4s ease-in-out infinite;
+  }
+
+  @keyframes moveBall {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(240px, 0);
+    }
+    100% {
+      transform: translate(0,0);
+    }
+  }
